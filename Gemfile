@@ -16,9 +16,15 @@ gem "bootsnap", require: false
 gem 'mysql2', '>= 0.4.4'
 
 group :development, :test do
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
   gem "web-console"
+end
+
+group :test do
+  gem 'rspec-rails'
 end
