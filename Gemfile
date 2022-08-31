@@ -14,6 +14,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 gem 'mysql2', '>= 0.4.4'
+gem 'kaminari'
 
 group :development, :test do
   gem 'factory_bot_rails'

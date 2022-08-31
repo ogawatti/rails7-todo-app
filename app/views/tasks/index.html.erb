@@ -11,5 +11,10 @@
   <% @tasks.each do |task| %>
     <%= render "form", task: task %>
   <% end %>
+
+  <%= paginate @tasks %>
+
+  <hr>
+
   <%= render "form", task: Task.new %>
 </div>
