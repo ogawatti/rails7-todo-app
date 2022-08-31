@@ -14,14 +14,9 @@
     </div>
   <% end %>
 
-  <%= form.submit('Update') %>
+  <%= form.submit(task.persisted? ? 'Update' : 'Create') %>
 
   <% if task.persisted? %>
-    <%
-=begin%>
- <%= link_to 'Destroy this task', task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %> 
-<%
-=end%>
     <%= link_to task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
       <button>Delete</button>
     <% end %>
