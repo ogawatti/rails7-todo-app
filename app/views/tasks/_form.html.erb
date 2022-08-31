@@ -1,4 +1,7 @@
 <%= form_with(model: task) do |form| %>
+  <%= form.check_box :done %>
+  <%= form.text_field :content %>
+
   <% if task.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -11,7 +14,16 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit('Update') %>
+
+  <% if task.persisted? %>
+    <%
+=begin%>
+ <%= link_to 'Destroy this task', task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %> 
+<%
+=end%>
+    <%= link_to task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+      <button>Delete</button>
+    <% end %>
+  <% end %>
 <% end %>
