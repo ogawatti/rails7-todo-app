@@ -1,16 +1,9 @@
-<% if notice %>
-  <p style="color: green"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p style="color: red"><%= alert %></p>
-<% end %>
-
 <h1>Tasks</h1>
 
 <div id="tasks">
   <%= turbo_frame_tag 'tasks-list' do %>
     <% @tasks.each do |task| %>
-      <%= render "form", task: task %>
+      <%= render 'form', task: task %>
     <% end %>
 
     <%= paginate @tasks %>
@@ -18,5 +11,5 @@
 
   <hr>
 
-  <%= render "form", task: Task.new %>
+  <%= render 'form', task: Task.new %>
 </div>

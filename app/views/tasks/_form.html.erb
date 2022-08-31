@@ -1,24 +1,26 @@
-<%= form_with(model: task) do |form| %>
-  <%= form.check_box :done %>
-  <%= form.text_field :content %>
+<%= turbo_frame_tag task do %>
+  <%= form_with(model: task) do |form| %>
+    <%= form.check_box :done %>
+    <%= form.text_field :content %>
 
-  <% if task.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+    <% if task.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-        <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+        <ul>
+          <% task.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <%= form.submit(task.persisted? ? 'Update' : 'Create') %>
+    <%= form.submit(task.persisted? ? 'Update' : 'Create') %>
 
-  <% if task.persisted? %>
-    <%= link_to task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
-      <button>Delete</button>
+    <% if task.persisted? %>
+      <%= link_to task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+        <button>Delete</button>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
