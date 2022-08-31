@@ -8,11 +8,13 @@
 <h1>Tasks</h1>
 
 <div id="tasks">
-  <% @tasks.each do |task| %>
-    <%= render "form", task: task %>
-  <% end %>
+  <%= turbo_frame_tag 'tasks-list' do %>
+    <% @tasks.each do |task| %>
+      <%= render "form", task: task %>
+    <% end %>
 
-  <%= paginate @tasks %>
+    <%= paginate @tasks %>
+  <% end %>
 
   <hr>
 
