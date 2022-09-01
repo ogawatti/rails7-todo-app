@@ -1,15 +1,19 @@
 <h1>Tasks</h1>
 
-<div id="tasks">
+<div id="task">
   <%= turbo_frame_tag 'tasks-list' do %>
-    <% @tasks.each do |task| %>
-      <%= render 'form', task: task %>
-    <% end %>
+    <div id="tasks">
+      <% @tasks.each do |task| %>
+        <%= render 'form', task: task %>
+      <% end %>
+    </div>
 
     <%= paginate @tasks %>
   <% end %>
 
   <hr>
 
-  <%= render 'form', task: Task.new %>
+  <div id="new-task">
+    <%= render 'form', task: Task.new %>
+  </div>
 </div>
