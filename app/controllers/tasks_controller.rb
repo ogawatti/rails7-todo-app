@@ -12,21 +12,15 @@ class TasksController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if task.update(task_params)
-        format.html { render :show }
-      else
-        format.html { redirect_to tasks_path }
-      end
+    unless task.update(task_params)
+      redirect_to tasks_path
     end
   end
 
   def destroy
     task.destroy
 
-    respond_to do |format|
-      format.html { redirect_to tasks_path, status: :see_other }
-    end
+    redirect_to tasks_path, status: :see_other
   end
 
   private
