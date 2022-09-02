@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.search(query).page(params[:page])
+    @tasks = Task.search(params[:q]).page(params[:page])
   end
 
   def create
@@ -22,10 +22,6 @@ class TasksController < ApplicationController
   end
 
   private
-
-  def query
-    @query ||= params[:q]
-  end
 
   def task
     @task ||= Task.find(params[:id])
