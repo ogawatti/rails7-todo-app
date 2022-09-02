@@ -1,0 +1,6 @@
+<div id="tasks-search">
+  <%= form_with url: tasks_path, method: :get do |form| %>
+    <%= form.text_field :q, value: @query %>
+    <%= form.submit 'Search' %>
+  <% end %>
+</div>

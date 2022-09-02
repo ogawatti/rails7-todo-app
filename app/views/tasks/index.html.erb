@@ -1,6 +1,10 @@
 <h1>Tasks</h1>
 
 <div id="task">
+  <%= render 'search' %>
+
+  <hr>
+
   <%= turbo_frame_tag 'tasks-list', data: { turbo_action: :advance }  do %>
     <div id="tasks">
       <% @tasks.each do |task| %>
