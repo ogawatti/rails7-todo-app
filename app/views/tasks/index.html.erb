@@ -5,15 +5,17 @@
 
   <hr>
 
-  <%= turbo_frame_tag 'tasks-list', data: { turbo_action: :advance }  do %>
-    <div id="tasks">
-      <% @tasks.each do |task| %>
-        <%= render 'form', task: task %>
-      <% end %>
-    </div>
+  <div id="tasks">
+    <%= turbo_frame_tag 'tasks-list' do %>
+      <%= turbo_frame_tag "tasks-page-#{@tasks.current_page}" do %>
+        <% @tasks.each do |task| %>
+          <%= render 'form', task: task %>
+        <% end %>
 
-    <%= paginate @tasks %>
-  <% end %>
+        <%= turbo_frame_tag "tasks-page-#{@tasks.next_page}", loading: :lazy, src: path_to_next_page(@tasks) %>
+      <% end %>
+    <% end %>
+  </div>
 
   <hr>
 
