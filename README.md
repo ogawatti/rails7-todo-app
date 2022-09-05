@@ -1,24 +1,31 @@
-# README
+# Rails 7 Todo App to learn Hotwire
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+```bash
+$ bundle install
+$ docker-compose up --build
+$ bin/rails db:create
+$ bin/rails db:migrate RAILS_ENV=development
+$ bin/rails db:migrate RAILS_ENV=test
+```
 
-* Ruby version
+## Launch
 
-* System dependencies
+```bash
+$ docker-compose up --build
+$ bin/rails s
+```
 
-* Configuration
+## Test
 
-* Database creation
+```bash
+$ bundle exec rspec
+```
 
-* Database initialization
+## What I've learned
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [x] Simple.css
+- [x] CRUD (Turbo)
+- [x] Instant Search (Turbo, Stimulus)
+- [x] Continuous scrolling (Turbo, Stimulus)
